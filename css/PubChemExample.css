@@ -1,0 +1,1168 @@
+body {
+	background-color: #000000;
+	margin: 0px;
+	overflow: hidden;
+	font-family:Monospace;
+	font-size:13px;
+	text-align:center;
+	font-weight: bold;
+	text-align:center;
+}
+
+a {
+	color:#0078ff;
+}
+
+#info {
+	color:#fff;
+	position: absolute;
+	top: 0px; width: 100%;
+	padding: 5px;
+	z-index:100;
+}
+
+#bugReport_Container
+{
+	color:#FFFFFF;
+	position:absolute;
+	left:30px;
+	bottom:20px;
+	width:40px;
+	border: 2px solid #a1a1a1;
+    border-radius: 25px;
+    background: #303080;
+
+}
+
+#bugReport_Button {
+	position:relative;
+	top:25%;
+	width:40px;
+	height:40px;
+	
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	background: url(BugReport.png) no-repeat center; 
+	line-height : 30px;
+	font-size: 40px;
+	z-index: 1001;
+}
+/*--------------------------------------- SearchField CSS ----------------------------------------------*/
+
+#dimensionMenuSuperContainer {
+	position:absolute;
+	bottom:0%;
+	right:0px;
+	width:340px;
+	height:240px;
+}
+
+#dimensionMenuSuperPropertiesContainer {
+	position:relative;
+	left:0px;
+	bottom:0px;
+	top:0px;
+	right:88px;
+	width:280px;
+	height:240px;
+
+}
+
+#dimensionMenuContainer {
+	position:absolute;
+	bottom:0%;
+	right:0px;
+	width:60px;
+	height:240px;
+}
+
+#dimensionMenu_alpha_Button {
+	position:relative;
+	top:0%;
+	width:60px;
+	height:60px;
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	background: url() no-repeat #4d4d4d center; 
+	line-height : 30px;
+	font-size: 40px;
+}
+
+#dimensionMenu_beta_Button {
+	position:relative;
+	top:0%;
+	width:60px;
+	height:60px;
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	background: url() no-repeat #4d90fe center; 
+	line-height : 30px;
+	font-size: 40px;
+}
+
+#dimensionMenu_gamma_Button {
+	position:relative;
+	top:0%;
+	width:60px;
+	height:60px;
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	background: url() no-repeat #4d90fe center; 
+	line-height : 24px;
+	font-size: 40px;
+}
+
+#dimensionMenu_delta_Button {
+	position:relative;
+	top:0%;
+	width:60px;
+	height:60px;
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	background: url() no-repeat #4d90fe center; 
+	line-height : 30px;
+	font-size: 40px;
+}
+
+
+
+#alpha_properties_menu
+{
+	position:relative;
+	top:0%;
+	left:0;
+	width = 360px;
+	height:60px;
+	background: url() no-repeat #4d90fe center; 
+
+}
+#beta_properties_menu
+{
+	position:relative;
+	
+	width = 360px;
+	height:60px;
+	background: url() no-repeat #4d90fe center; 				
+}
+#gamma_properties_menu 
+{
+	position:relative;
+	
+	width = 360px;
+	height:60px;
+	background: url() no-repeat #4d90fe center; 				
+}
+#delta_properties_menu 
+{
+	position:relative;
+	
+	width = 360px;
+	height:60px;
+	background: url() no-repeat #4d90fe center; 				
+
+}
+
+
+
+#infoMenuContainer {
+	position:absolute;
+	top:0%;
+	right:0px;
+	width:100px;
+	height:100px;
+	z-index:1002;
+
+}
+
+#infoMenu_info_Button {
+	position:relative;
+	top:25%;
+	width:80px;
+	height:70px;
+	background: url(info.png) no-repeat center; 
+
+
+}
+
+
+#menuContainer {
+	position:absolute;
+	top:10%;
+	left:0px;
+	width:100px;
+	height:100px;
+}
+
+
+#mainMenu_file_Button {
+	position:relative;
+	top:25%;
+	width:80px;
+	height:70px;
+	background: url(__File.png) no-repeat #4d90fe center; 
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	font-size: 40px;
+	line-height : 40px;
+
+}
+#mainMenu_timePanel_Button {
+	position:relative;
+	top:25%;
+	width:80px;
+	height:70px;
+	background: url(__Time.png) no-repeat #4d90fe center; 
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	font-size: 40px;
+	line-height : 40px;
+}
+#mainMenu_quantumRuler_Button {
+	position:relative;
+	top:25%;
+	width:80px;
+	height:70px;
+	background: url(__Ruler.png) no-repeat #4d90fe center; 
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	font-size: 20px;
+}
+#mainMenu_tempPressure_Button {
+	position:relative;
+	top:25%;
+	width:80px;
+	height:70px;
+	background: url(__Temp.png) no-repeat #4d90fe center; 
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	font-size: 20px;
+}
+#mainMenu_ePaint_Button {
+	position:relative;
+	top:25%;
+	width:80px;
+	height:70px;
+	background: url(__EPaint.png) no-repeat #4d90fe center; 
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	font-size: 20px;
+}
+#mainMenu_photonics_Button {
+	position:relative;
+	top:25%;
+	width:80px;
+	height:70px;
+	background: url(__Photon.png) no-repeat #4d90fe center; 
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	font-size: 20px;
+
+}
+
+/*--------------------------------------- SearchField CSS ----------------------------------------------*/
+
+
+#searchContainer {
+	position: absolute;
+	top: 10px;
+	left :50%;
+	margin-left: -110px;
+	width:420px;
+	z-index: 2000;
+
+
+}
+
+/* Style the search input field. */
+#field {
+	float:left; 
+	width:280px; 
+	height:27px; 
+	line-height:27px;
+	text-indent:10px; 
+	font-family:arial, sans-serif; 
+	font-size:1em; 
+	color:#333; 
+	background: #fff; 
+	border:solid 1px #d9d9d9; 
+	border-top:solid 1px #c0c0c0; 
+	border-right:none;
+	border-radius: 0px;
+}
+
+/* Style the "X" text button next to the search input field */
+#delete {
+	float:left; 
+	width:16px;
+	height:27px; 
+	line-height:27px; 
+	margin-right:15px; 
+	padding:10 10px 0 10px;
+	font-family: "Lucida Sans", "Lucida Sans Unicode",sans-serif;
+	font-size:22px; 
+	background: #fff;  
+	border:solid 1px #d9d9d9; 
+	border-top:solid 1px #c0c0c0; 
+	border-left:none;
+}
+/* Set default state of "X" and hide it */
+#delete #x {
+	color:#A1B9ED; 
+	cursor:pointer;
+	display:none;
+}
+/* Set the hover state of "X" */
+#delete #x:hover {
+	color:#36c;
+}
+/* Syle the search button. Settings of line-height, font-size, text-indent used to hide submit value in IE */
+#helpButton {
+	position:absolute;
+	
+	top:0px;
+	left:0px;
+	
+	margin-left:-60px;
+	width:40px;
+	height:40px;
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+	background: url() no-repeat #357AE8 center; 
+	text-indent: -10px;
+	line-height: 16px;
+	font-size: 40px;
+}
+
+#submitButton {
+	cursor:pointer; 
+	width:70px; 
+	height: 31px; 
+	line-height:0; 
+	margin-left:-26px;
+	font-size:0; 
+	text-indent:-999px;
+	color: transparent;  
+	background: url(ico-search.png) no-repeat #4d90fe center; 
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+}
+/* Style the search button hover state */
+#submit:hover {
+	background: url(ico-search.png) no-repeat center #357AE8; 
+	border: 1px solid #2F5BB7;
+}
+
+
+
+
+
+#outputcontent {
+	color: #ffffff;
+}
+
+#message {
+	color: #ffffff;
+}
+
+#info {
+	position: absolute;
+	top: 0px;
+	left:0px;
+	width: 100%;
+	color: #ffffff;
+	padding: 5px;
+	font-family: Monospace;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: left;
+	z-index: 1;
+}
+
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	-moz-font-smoothing:antialiased;
+	-o-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+body {
+	font:400 12px/1.625 "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:#444;
+	background:#ffffff;
+	background-image:linear-gradient(left , #000000 0%, #000000 52%, #000000 100%);
+	background-image:-moz-linear-gradient(left , #000000 0%, #000000 52%, #000000 100%);
+	background-image:-webkit-linear-gradient(left , #000000 0%, #000000 52%, #000000 100%);
+}
+#float_background
+{
+	background-color:#000000;
+	opacity:0.5;
+
+	position:fixed;
+    top:-30px;
+    right:400px;
+    float:right;
+}
+#float{
+    position:fixed;
+    top:-30px;
+    right:400px;
+    float:right;
+}
+
+.wrapper {
+	max-width:400px;
+	min-width:400px;
+	position:absolute;
+	width:95%;
+	
+}
+
+
+#ContactPage{
+	margin-left:200px;
+	top:150px;
+	width: 400px;
+	margin: 0 auto;
+	z-index:1000;
+	-webkit-transition: opacity 0.5s ease-in;
+    -moz-transition: opacity 0.5s ease-in;
+    -o-transition: opacity 0.5s ease-in;
+
+}
+
+
+.hidden-display
+{
+	visibility: hidden;
+	opacity:0;
+}
+.visible-display
+{
+	visibility: visible;
+	opacity: 1;
+}
+
+#ContactPage.fade-out
+{
+	visibility:hidden;
+    opacity:0;
+}
+
+#ContactPage.fade-in
+{
+	visibility:visible;
+    opacity:1;
+}
+
+#ContactButton{
+	position:absolute;
+	right:50px;
+	top:50px;
+	width:100px;
+	height:50px;
+	background: url('images/Contact.png') 300 100 no-repeat;
+	z-index:100;
+	border-radius:25px;
+}
+
+
+#ContactButtonImg{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100px;
+	height:50px;
+	z-index:100;
+	border-radius:25px;
+
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form input[type="tel"],
+#contact-form input[type="url"],
+#contact-form textarea,
+#contact-form button[type="submit"] {
+	font:400 12px/12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#contact-form {
+
+	text-shadow:0 1px 0 #FFF;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	background:#F7F7F7;
+	text-align: left;
+	padding:25px;
+
+	border: 4px solid #A0A9AD; 
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+}
+#MoleculeName{
+	color:#FF5050;
+	display:block;
+	font-size:26px;
+	word-wrap: break-word;
+}
+#contact-form h3 {
+	color:#FF5050;
+	display:block;
+	font-size:22px;
+	word-wrap: break-word;
+}
+#contact-form h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+#contact-form label span {
+	cursor:pointer;
+	color:#606060;
+	display:block;
+	margin:5px 0;
+	font-weight:900;
+}
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form input[type="tel"],
+#contact-form input[type="url"],
+#contact-form textarea {
+	width:100%;
+	box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	-webkit-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	-moz-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	border-radius:5px;
+}
+#contact-form input[type="text"]:hover,
+#contact-form input[type="email"]:hover,
+#contact-form input[type="tel"]:hover,
+#contact-form input[type="url"]:hover,
+#contact-form textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
+}
+#contact-form textarea {
+	height:100px;
+	max-width:100%;
+}
+#contact-form button[type="submit"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#693e5a;
+	background-image:linear-gradient(bottom, #2d70de 10%, #4d90fe 50%);
+	background-image:-moz-linear-gradient(bottom, #2d70de 10%, #4d90fe 50%);
+	background-image:-webkit-linear-gradient(bottom, #2d70de 10%, #4d90fe 50%);
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	border-radius:5px;
+}
+#contact-form button[type="submit"]:hover {
+	background-image:linear-gradient(bottom, #0d50be 0%, #4d90fe 52%);
+	background-image:-moz-linear-gradient(bottom, #0d50be 0%, #4d90fe 52%);
+	background-image:-webkit-linear-gradient(bottom, #0d50be 0%, #4d90fe 52%);
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+#contact-form button[type="submit"]:active {
+	box-shadow:inset 0 1px 3px rgba(0,0,0,0.5);
+}
+#contact-form input:focus,
+#contact-form textarea:focus {
+	outline:0;
+	border:1px solid #999;
+}
+::-webkit-input-placeholder {
+    color:#888;
+}
+:-moz-placeholder {
+    color:#888;
+}
+::-moz-placeholder {
+    color:#888;
+}
+:-ms-input-placeholder {
+    color:#888;
+}
+
+/*--------------------------------------- END SearchField CSS ----------------------------------------------*/
+.drag {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    cursor: pointer;
+    border-radius: 10px;
+    float: left;
+    margin-left: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+
+#dragbasic {
+	position:absolute;
+	top:200px;
+	left:260px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid gray;
+    background-color: #E0F0FF;
+}
+
+
+			
+nav.vertical {
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0,0,0,.15);
+  overflow: hidden;
+  text-align: center;
+}
+
+nav.vertical > ul {
+  list-style-type: none;
+}
+
+nav.vertical > ul > li {
+  display: block;
+}
+
+nav.vertical > ul > li > a {
+background-color: rgb(157, 34, 60);
+background-image: -webkit-linear-gradient(135deg, rgb(114, 51, 98), rgb(157, 34, 60));
+background-image: -moz-linear-gradient(135deg, rgb(114, 51, 98), rgb(157, 34, 60));
+background-image: -o-linear-gradient(135deg, rgb(114, 51, 98), rgb(157, 34, 60));
+background-image: linear-gradient(135deg, rgb(114, 51, 98), rgb(157, 34, 60));
+border-bottom: 1px solid rgba(255,255,255,.1);
+box-shadow: inset 0 1px 1px rgba(0,0,0,.1), 0 1px 1px rgba(0,0,0,.1);
+color: rgb(255,255,255);
+display: block;
+font-size: .85rem;
+font-weight: 500;
+height: 50px;
+letter-spacing: .5rem;
+line-height: 50px;
+text-shadow: 0 1px 1px rgba(0,0,0,.1);
+text-transform: uppercase;
+transition: all .1s ease;
+text-decoration: none;
+}
+
+nav.vertical > ul > li > a:hover {
+background-color: rgb(114, 51, 98);
+background-image: -webkit-linear-gradient(150deg, rgb(114, 51, 98), rgb(114, 51, 98));
+background-image: -moz-linear-gradient(150deg, rgb(114, 51, 98), rgb(114, 51, 98));
+background-image: -o-linear-gradient(150deg, rgb(114, 51, 98), rgb(114, 51, 98));
+background-image: linear-gradient(150deg, rgb(114, 51, 98), rgb(114, 51, 98)); 
+cursor: pointer;
+}
+
+nav.vertical > ul > li > div {
+background-color: rgb(255,255,255);
+}
+
+nav.vertical > ul > li > div > ul {
+list-style-type: none;
+}
+
+nav.vertical > ul > li > div > ul > li > a {
+background-color: rgb(255,255,255);
+border-bottom: 1px solid rgba(0,0,0,.05);
+color: #333331;
+display: block;
+font-size: 1.1rem;
+padding: 10px 0;
+text-decoration: none;
+transition: all 0.15s linear;
+}
+
+nav.vertical > ul > li > div > ul > li:hover > a {
+background-color: lightBlue;
+color: rgb(255,255,255);
+padding: 10px 0 10px 50px;
+}
+
+#fileMenuPanel {
+	position:absolute;
+	top:12%;
+	left:90px;
+	max-width:200px;
+	min-width:200px;
+	color:#444;
+	display: none;
+	z-index: 1001;
+}
+
+#rulerMenuPanel {
+	position:absolute;
+	top:12%;
+	left:110px;
+	width:300px;
+	height:300px;
+	max-width:300px;
+	min-width:300px;
+	background-color:#F0F0F0;
+	color:#444;
+	display: none;
+	z-index: 1001;
+	border: 4px solid #A0A9AD; 
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+}
+
+
+#photonMenuPanel {
+	position:absolute;
+	top:12%;
+	left:110px;
+	width:300px;
+	height:300px;
+	max-width:300px;
+	min-width:300px;
+	background-color:#F0F0F0;
+	color:#444;
+	display: none;
+	z-index: 1001;
+	border: 4px solid #A0A9AD; 
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+}
+
+
+#tempMenuPanel {
+	position:absolute;
+	top:12%;
+	left:110px;
+	width:300px;
+	height:300px;
+	max-width:300px;
+	min-width:300px;
+	background-color:#F0F0F0;
+	color:#444;
+	display: none;
+	z-index: 1001;
+	border: 4px solid #A0A9AD; 
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+}
+
+#tempPanel_tempLabel{
+	position: absolute;
+	bottom:0px;
+	left:0px;
+	width:80px;
+	height:50px;
+}
+
+#tempPanel_pressureLabel{
+	position: absolute;
+	bottom:0px;
+	left:110px;
+	width:80px;
+	height:50px;
+	text-align: center;
+}
+
+
+#tempPanel_hydroniumLabel{
+	position: absolute;
+	bottom:0px;
+	right:0px;
+	width:80px;
+	height:50px;
+}
+
+#tempSlider{
+	position:absolute;
+	top:60px;
+	left:30px;
+	width:30px;
+	height:190px;
+	
+    -webkit-appearance: slider-vertical;
+}
+#pressureSlider{
+	position:absolute;
+	top:60px;
+	left:130px;
+	width:30px;
+	height:190px;
+	
+    -webkit-appearance: slider-vertical;
+}
+#hydroniumSlider{
+	position:absolute;
+	top:60px;
+	right:30px;
+	width:30px;
+	height:190px;
+	
+    -webkit-appearance: slider-vertical;	
+}
+
+#tempInputField {
+	position:absolute;
+	top:20px;
+	left:10px;
+	width: 80px;
+	height:80px;
+	font-size:180%;
+	z-index: 1001;
+	width:80px;
+	height:80px;
+	font-size:180%;
+}
+
+#pressureInputField {
+	position:absolute;
+	top:20px;
+	left:110px;
+	width: 80px;
+	height:80px;
+	font-size:180%;
+	z-index: 1001;
+	width:80px;
+	height:80px;
+	font-size:180%;
+}
+
+#hydroniumInputField {
+	position:absolute;
+	top:20px;
+	left:210px;
+	width: 80px;
+	height:80px;
+	font-size:180%;
+	z-index: 1001;
+	width:80px;
+	height:80px;
+	font-size:180%;
+}
+
+#timeMenuPanel {
+	position:absolute;
+	top:12%;
+	left:110px;
+	width:300px;
+	height:300px;
+	max-width:300px;
+	min-width:300px;
+	background-color:#F0F0F0;
+	color:#444;
+	display: none;
+	z-index: 1001;
+	border: 4px solid #A0A9AD; 
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+}
+
+#timeSpeedSliderContainer {
+	position:absolute;
+	width:30px;
+	height:230px;
+	left:0px;
+	top:50px;
+	
+}
+
+#timeSpeedSlider {
+	position:absolute;
+	top:4px;
+	width:30px;
+	height:230px;
+	
+    -webkit-appearance: slider-vertical;
+}
+
+#timeLogDeltaTLabel {
+	position: absolute;
+	top:0px;
+	left:10px;
+	width:80px;
+	height:50px;
+}
+
+#timeDeltaTLabel {
+	position: absolute;
+	top:20px;
+	right:20px;
+	width:50px;
+	height:50px;
+}
+
+#timeDeltaInputField {
+	position:absolute;
+	top:240px;
+	right:80px;
+	width: 80px;
+	height:80px;
+	font-size:180%;
+	z-index: 1001;
+	width:80px;
+	height:80px;
+	font-size:180%;
+}
+
+input {
+    border: 0;
+    outline: 0;
+    background: yellow
+        ;
+    border-bottom: 2px solid black;
+    width: 80px;
+    height:80px;
+    font-size:180%;
+}
+#timeDeltaInputFieldUnitsLabel {
+	position:absolute;
+	top:220px;
+	right:10px;
+	width:80px;
+	height:80px;
+	font-size:180%;
+}
+#drag_infoPanel {
+	visibility: hidden;
+	position:absolute;
+	top:100px;
+	right:50px;
+	font-size:24px;	
+}
+
+#quantumRulerVisibilityButtonContainer {
+	position:absolute;
+	top:25px;
+	left:25px;
+
+}
+#quantumRulerVisibilityButton {
+	width:35px;
+	height:35px;
+	background:red;
+}
+
+.block {
+	position: absolute;
+	display: block;
+	text-align: left;
+	left:40px;
+}
+
+#rulerRadioButton1 {
+	top:100px;
+}
+
+
+#rulerRadioButton2 {
+	top:200px;	
+}
+
+#epaintMenuPanel {
+	position:absolute;
+	top:12%;
+	left:110px;
+	width:300px;
+	height:300px;
+	max-width:300px;
+	min-width:300px;
+	background-color:#F0F0F0;
+	color:#444;
+	display: none;
+	z-index: 1001;
+	border: 4px solid #A0A9AD; 
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+}
+
+#epaintTracksVisibilityButtonContainer {
+	position:absolute;
+	top:25px;
+	left:25px;
+
+}
+#epaintTracksVisibilityButton {
+	width:35px;
+	height:35px;
+	background:red;
+}
+
+
+
+#colorHiggsFieldVisibilityButtonContainer {
+	position:absolute;
+	top:75px;
+	left:25px;
+
+}
+#colorHiggsFieldVisibilityButton {
+	width:35px;
+	height:35px;
+	background:red;
+}
+
+
+#vanDerWallsOverlayVisibilityButtonContainer {
+	position:absolute;
+	top:125px;
+	left:25px;
+
+}
+#vanDerWallsOverlayVisibilityButton {
+	width:35px;
+	height:35px;
+	background:red;
+}
+
+#photonAbsorbtionVisibilityButtonContainer {
+	position:absolute;
+	top:25px;
+	left:25px;				
+}
+
+#photonAbsorbtionVisibilityButton {
+	width:35px;
+	height:35px;
+	background:red;	
+}
+
+#photonRadioButton1 {
+	top:100px;
+}
+
+
+#photonRadioButton2 {
+	top:200px;	
+}
+
+#webgl_div {
+	position:absolute;
+	top:0%;
+	left:0%;
+	width = 100%;
+	height = 100%;
+}
+
+
+#alphaDimension_opacity_slider {
+
+	top:0%;
+	width:200px;
+	height:80px;
+
+}
+
+#betaDimension_opacity_slider {
+
+	top:0%;
+	width:200px;
+	height:80px;
+
+}
+
+#gammaDimension_opacity_slider {
+
+	top:0%;
+	width:200px;
+	height:80px;
+
+}
+
+#deltaDimension_opacity_slider {
+
+	top:0%;
+	width:200px;
+	height:80px;
+
+}
+
+#info_helptip {
+	position:absolute;
+	top:8%;
+	right:6%;
+}
+
+#search_helptip {
+	position:absolute;
+	top:8%;
+	left :50%;
+	margin-left: -100px;
+	
+}
+
+#company_helptip {
+	position:absolute;
+	top:8%;
+	left:6%;	
+}
+
+#bugReport_helptip {
+	position:absolute;
+	bottom:8%;
+	left:6%;					
+}
+
+#keyboard_helptip {
+	position:absolute;
+	top:44%;
+	margin-bottom:160px;
+	left :40%;
+}
+
+#mouseTrackpad_helptip {
+	position:absolute;
+	top:80%;
+	/*left :50%;
+	margin-left: -360px;*/
+	
+	left :40%;	
+}
+
+#dimensions_helptip {
+	position:absolute;
+	bottom:8%;
+	right:6%;						
+}
+
+#helpPanel {
+	position:absolute;
+	width:100%;
+	height:100%;
+	-webkit-transition: opacity 0.6s ease-in;
+    -moz-transition: opacity 0.6s ease-in;
+    -o-transition: opacity 0.6s ease-in;
+
+	
+}
+
+#blackOpaqueBackground {
+	position:absolute;
+	width:100%;
+	height:100%;
+	opacity:0.6;
+	background: url() no-repeat #000000 center; 
+}
