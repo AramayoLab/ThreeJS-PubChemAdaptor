@@ -11,6 +11,32 @@ var selectedDimension;
 var selectedObjectsArray;
 
 
+var alphaDimension;
+
+var container, stats;
+var camera, scene, renderer, particles, geometry, materials = [], parameters, i, h, color, sprite, size;
+var mouseX = 0, mouseY = 0;
+
+var alphaTransformControl;
+
+var objects = [];
+var tmpVec1 = new THREE.Vector3();
+var tmpVec2 = new THREE.Vector3();
+var tmpVec3 = new THREE.Vector3();
+var tmpVec4 = new THREE.Vector3();
+
+
+var loader = new THREE.PubChem_3DJSONLoader();
+var pdbLoader = new THREE.PDBLoader();
+
+var colorSpriteMap = {};
+var baseSprite = document.createElement( 'img' );
+
+var rotateMolecules = false;
+var windowHalfX = window.innerWidth / 2;
+var windowHalfY = window.innerHeight / 2;
+
+
 
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
@@ -259,25 +285,6 @@ function parseDataResponseIntoInfoPanel(selectedDimension)
    			}
    		}
 	}
-}
-
-function clearSelectedDimensionObjects()
-{
-	//Clear the objects array
-	if (selectedDimension == alphaDimension)
-	{
-		console.log('alpha clear, ', alphaObjects);
-		for ( var i = 0; i < alphaObjects.length; i ++ ) {
-
-			var object = alphaObjects[ i ];
-			console.log('alpha clear object - ', alphaObjects);
-			object.parent.remove( object );
-
-		}
-		alphaObjects = [];
-		scene.add( alphaTransformControl );
-	}
-	
 }
 
 
@@ -765,30 +772,6 @@ $(document).ready(function() {
 
 });  
 
-var alphaDimension;
-
-var container, stats;
-var camera, scene, renderer, particles, geometry, materials = [], parameters, i, h, color, sprite, size;
-var mouseX = 0, mouseY = 0;
-
-var alphaTransformControl;
-
-var objects = [];
-var tmpVec1 = new THREE.Vector3();
-var tmpVec2 = new THREE.Vector3();
-var tmpVec3 = new THREE.Vector3();
-var tmpVec4 = new THREE.Vector3();
-
-
-var loader = new THREE.PubChem_3DJSONLoader();
-var pdbLoader = new THREE.PDBLoader();
-
-var colorSpriteMap = {};
-var baseSprite = document.createElement( 'img' );
-
-var rotateMolecules = false;
-var windowHalfX = window.innerWidth / 2;
-var windowHalfY = window.innerHeight / 2;
 
 $("field").focusin(function(){
     $(this).css("background-color","#FFFFCC");
@@ -797,8 +780,10 @@ $("field").focusout(function(){
 	$(this).css("background-color","#FFFFFF");
 });
 
+
 init();
 animate();
+
 
 function init() {
 
@@ -977,7 +962,26 @@ function onDocumentTouchMove( event ) {
 
 }
 
-//
+
+function clearSelectedDimensionObjects()
+{
+	//Clear the objects array
+	if (selectedDimension == alphaDimension)
+	{
+		console.log('alpha clear, ', alphaObjects);
+		for ( var i = 0; i < alphaObjects.length; i ++ ) {
+
+			var object = alphaObjects[ i ];
+			console.log('alpha clear object - ', alphaObjects);
+			object.parent.remove( object );
+
+		}
+		alphaObjects = [];
+		scene.add( alphaTransformControl );
+	}
+	
+}
+
 
 function animate() {
 
