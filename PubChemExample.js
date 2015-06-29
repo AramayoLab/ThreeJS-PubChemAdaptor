@@ -228,6 +228,7 @@ function parseDataResponseIntoInfoPanel(selectedDimension)
 	if (selectedDimension == alphaDimension)
 	{
 		jsonResponse = alphaDataResponse;
+		document.getElementById('MoleculeName_MainLabel').innerHTML = alphaDataTitle;
 		document.getElementById('MoleculeName').innerHTML = alphaDataTitle;
 	}
 	
@@ -832,6 +833,9 @@ function init() {
 
 	selectedDimension = alphaDimension;
 	selectedObjectsArray = alphaObjects;
+
+
+	pubChem_compoundSearchByName("benzene", alphaDimension);
 
 
 	// lights
