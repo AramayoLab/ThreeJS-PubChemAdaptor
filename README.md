@@ -14,3 +14,15 @@ Please ask any questions and I can try to answer them but I am very busy at the 
 For science and an open source of knowledge!
 
 
+
+
+PubChem REST URL Requests:
+Please note that caffeine needs to be the search phrase you want to search for:
+
+https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/caffeine/JSON?record_type=3d
+
+
+
+TODO: Implement this protocol and show a similar results in case your search does not match an exact chemical:
+
+https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/fructose/cids/JSON?name_type=word
