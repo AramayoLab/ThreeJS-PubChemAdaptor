@@ -16,6 +16,8 @@ var alphaDimension;
 var container, stats;
 var camera, scene, renderer, particles, geometry, materials = [], parameters, i, h, color, sprite, size;
 var mouseX = 0, mouseY = 0;
+var electrons = [];
+var atomic_nuclei = [];
 
 var alphaTransformControl;
 
@@ -163,6 +165,52 @@ function setAtomSize( atom, element)
 	}
 }
 
+function getAtomElectronCount(element)
+{
+	//console.log('element -', element);
+	switch(element)
+	{
+		case 'c':
+		//console.log('carbon');
+		return 6;
+		break;
+		case 'o':
+		//console.log('oxygen');
+		return 8;
+		break;
+		case 'n':
+		//console.log('nitrogen');
+		return 7;
+		break;
+		case 'h':
+		//console.log('hydrogen');
+		return 1;
+		break;
+	}
+}
+function getAtomSize_vanderwalls(element)
+{
+	//console.log('element -', element);
+	switch(element)
+	{
+		case 'c':
+		//console.log('carbon');
+		return 170/2.0;//picometers
+		break;
+		case 'o':
+		//console.log('oxygen');
+		return 152/2.0;//picometers
+		break;
+		case 'n':
+		//console.log('nitrogen');
+		return 155/2.0;//picometers
+		break;
+		case 'h':
+		//console.log('hydrogen');
+		return 120/2.0;//picometers
+		break;
+	}
+}
 function getAtomSize(element)
 {
 	//console.log('element -', element);
@@ -326,25 +374,66 @@ function loadPubChemMolecule( pubChem_3djson , destinationDimension)
 			var element = geometry.elements[ i ];
 			
 			//WebGL way of adding a sprite atom
-			
-			var geometry2 = new THREE.SphereGeometry( getAtomSize(element), 32, 32 );
 
+			//-----
+			//Covalent Sphere
+			var geometry2 = new THREE.SphereGeometry( getAtomSize(element), 32, 32 );
 			var material =  new THREE.MeshLambertMaterial( { color:color.getHex(), shading: THREE.FlatShading , transparent: true} );
 			//var material = new THREE.MeshBasicMaterial( {color: color.getHex()} );
+			material.opacity = 0.1;
 			var sphere = new THREE.Mesh( geometry2, material );
 
 
-
-			material.opacity = 0.7;
+			material.opacity = 1.0;
 			sphere.position.copy( position );
 			sphere.position.multiplyScalar( 100 );
-			
 
 			selectedDimension.add( sphere );
-
 			if (selectedDimension == alphaDimension)	
-				alphaObjects.push( sphere );
+							alphaObjects.push( sphere );
+
+			//-----
+			//VanDerWalls Sphere
+			var geometry_vanderwalls = new THREE.SphereGeometry( getAtomSize_vanderwalls(element), 32, 32 );
+			var material_vanderwalls =  new THREE.MeshLambertMaterial( { color:color.getHex(), shading: THREE.FlatShading , transparent: true} );
+			//var material = new THREE.MeshBasicMaterial( {color: color.getHex()} );
+			var sphere = new THREE.Mesh( geometry_vanderwalls, material_vanderwalls );
+
+
+			material_vanderwalls.opacity = 0.2;
+			sphere.position.copy( position );
+			sphere.position.multiplyScalar( 100 );
+
+			selectedDimension.add( sphere );
+			if (selectedDimension == alphaDimension)	
+							alphaObjects.push( sphere );
+			//------
 			
+						
+			var electronCount = getAtomElectronCount(element)
+			
+			for (var iii=0; iii<electronCount; iii++)
+			{
+				var electron_geometry = new THREE.SphereGeometry( 1, 32, 32 );
+
+				var electron_material =  new THREE.MeshLambertMaterial( { color:color.getHex(), shading: THREE.FlatShading , transparent: false} );
+			
+				var electron = new THREE.Mesh( electron_geometry, electron_material );			
+				material.opacity = 0.3;
+				electron.position.copy( position );
+				electron.position.multiplyScalar( 100 );
+				electron.position.x += Math.floor((Math.random() * 100) ) - 50.0;
+				electron.position.y += Math.floor((Math.random() * 100) ) - 50.0;
+				electron.position.z += Math.floor((Math.random() * 100) ) - 50.0;
+				
+				electrons.push(electron)
+
+				selectedDimension.add( electron );
+				//alphaObjects.push( sphere );
+
+			}
+			atomic_nuclei.push(sphere);
+
 			//console.log('round1');
 		}
 
@@ -409,7 +498,7 @@ function loadPubChemMolecule( pubChem_3djson , destinationDimension)
 
 
 					var geometry = new THREE.CylinderGeometry( 4, 4, bondLength, 4, 1 );
-					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: true } );
+					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: false } );
 					var mesh = new THREE.Mesh( geometry, material );
 	
 
@@ -432,7 +521,7 @@ function loadPubChemMolecule( pubChem_3djson , destinationDimension)
 						alphaObjects.push( mesh );
 					
 					var geometry = new THREE.CylinderGeometry( 4, 4, bondLength, 4, 1 );
-					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: true } );
+					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: false } );
 					var mesh2 = new THREE.Mesh( geometry, material );
 
 					//var object2 = new THREE.CSS3DObject( bond2 );
@@ -490,7 +579,7 @@ function loadPubChemMolecule( pubChem_3djson , destinationDimension)
 
 
 					var geometry = new THREE.CylinderGeometry( 4, 4, bondLength, 4, 1 );
-					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: true } );
+					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: false } );
 					var object2 = new THREE.Mesh( geometry, material );								//object2.rotation.y = Math.PI/2;
 					object2.position.x -= 10;
 					object2.matrixAutoUpdate = false;
@@ -541,7 +630,7 @@ function loadPubChemMolecule( pubChem_3djson , destinationDimension)
 
 
 					var geometry = new THREE.CylinderGeometry( 4, 4, bondLength, 4, 1 );
-					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: true } );
+					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: false } );
 					var object2 = new THREE.Mesh( geometry, material );								//object2.rotation.y = Math.PI/2;
 					//object2.rotation.y = Math.PI/2;
 					object2.position.x += 10;
@@ -596,7 +685,7 @@ function loadPubChemMolecule( pubChem_3djson , destinationDimension)
 					joint2.updateMatrix();
 
 					var geometry = new THREE.CylinderGeometry( 4, 4, bondLength, 4, 1 );
-					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: true } );
+					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: false } );
 					var object2 = new THREE.Mesh( geometry, material );
 
 
@@ -648,7 +737,7 @@ function loadPubChemMolecule( pubChem_3djson , destinationDimension)
 
 
 					var geometry = new THREE.CylinderGeometry( 4, 4, bondLength, 4, 1 );
-					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: true } );
+					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: false } );
 					var object2 = new THREE.Mesh( geometry, material );								//object2.rotation.y = Math.PI/2;
 					object2.position.x -= 20;
 					object2.matrixAutoUpdate = false;
@@ -698,7 +787,7 @@ function loadPubChemMolecule( pubChem_3djson , destinationDimension)
 
 
 					var geometry = new THREE.CylinderGeometry( 4, 4, bondLength, 4, 1 );
-					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: true } );
+					var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading, transparent: false } );
 					var object2 = new THREE.Mesh( geometry, material );
 					object2.position.x += 20;
 					object2.matrixAutoUpdate = false;
@@ -835,8 +924,9 @@ function init() {
 	selectedObjectsArray = alphaObjects;
 
 
-	pubChem_compoundSearchByName("benzene", alphaDimension);
+	//pubChem_compoundSearchByName("benzene", alphaDimension);
 
+	pubChem_compoundSearchByName("water", alphaDimension);
 
 	// lights
 
@@ -901,7 +991,7 @@ function init() {
 	controls.rotateSpeed = 1.0;
 	controls.zoomSpeed = 1.2;
 	controls.panSpeed = 0.8;
-	controls.minDistance = 500.0;
+	controls.minDistance = 100.0;
 	controls.maxDistance = 20000;
 
 	controls.noZoom = false;
@@ -981,6 +1071,18 @@ function clearSelectedDimensionObjects()
 
 		}
 		alphaObjects = [];
+
+		console.log('electrons clear, ', electrons);
+		for ( var i = 0; i < electrons.length; i ++ ) {
+
+			var object = electrons[ i ];
+			console.log('electron clear object - ', object);
+			object.parent.remove( object );
+
+		}
+		electrons = [];
+		
+
 		scene.add( alphaTransformControl );
 	}
 	
@@ -996,6 +1098,15 @@ function animate() {
 	render();
 }
 
+
+function distanceToPoint(point, toPoint)
+{
+	return (Math.sqrt((toPoint.x - point.x)*(toPoint.x - point.x) +
+					 (toPoint.y - point.y)*(toPoint.y - point.y) +
+					  (toPoint.z - point.z)*(toPoint.z - point.z)))
+}
+
+
 function render() {
 
 	var time = Date.now() * 0.00005;
@@ -1007,6 +1118,66 @@ function render() {
 
 	alphaTransformControl.update();
 
+
+	for ( i = 0; i < electrons.length; i ++ ) {
+
+		var electron = electrons[i];
+		var min_distance = 99999;
+		var closest_nuclei;
+		for ( j = 0; j < atomic_nuclei.length; j ++ ) {
+			var nucleus = atomic_nuclei[j];
+			var newdistance = distanceToPoint(electron.position, nucleus.position);
+			if (newdistance <= min_distance)
+			{
+				min_distance = newdistance;
+				closest_nuclei = nucleus;
+			}
+		}
+
+		//we now have the closest nuclei
+		//attract the electrons into the center
+		var nucleus_vec = new THREE.Vector3((closest_nuclei.position.x - electron.position.x),
+											closest_nuclei.position.y - electron.position.y,
+											closest_nuclei.position.z - electron.position.z);
+		var nucleus_vec_normalized = nucleus_vec.normalize()
+
+		electron.position.x += nucleus_vec_normalized.x*0.05
+		electron.position.y += nucleus_vec_normalized.y*0.05
+		electron.position.z += nucleus_vec_normalized.z*0.05
+
+		var electron_min_distance = 30;
+
+		var total_electron_repulsion = new THREE.Vector3(0,0,0);
+
+		for ( var k = 0; k < electrons.length; k ++ ) {
+			var temp_electron = electrons[k];
+			var newdistance = distanceToPoint(temp_electron.position, nucleus.position);
+			if (newdistance <= electron_min_distance)
+			{
+				//apply the replusion force
+				var electron_repulsion = new THREE.Vector3((temp_electron.position.x - electron.position.x),
+											temp_electron.position.y - electron.position.y,
+											temp_electron.position.z - electron.position.z);
+				var electron_repulsion_normalized = electron_repulsion.normalize()
+				total_electron_repulsion.add(electron_repulsion_normalized)
+			}
+		}
+
+		electron.position.x -= total_electron_repulsion.x/20
+		electron.position.y -= total_electron_repulsion.y/20
+		electron.position.z -= total_electron_repulsion.z/20
+
+		if (min_distance < 1)
+		{
+			electron.position.x += -100*nucleus_vec_normalized.x
+			electron.position.y += -100*nucleus_vec_normalized.y
+			electron.position.z += -100*nucleus_vec_normalized.z
+
+			console.log("(" + nucleus_vec_normalized.x +","+ nucleus_vec_normalized.y +","+ nucleus_vec_normalized.z + ")")
+
+			console.log("(" + electron.position.x +","+ electron.position.y +","+ electron.position.z + ")")
+		}
+	}
 
 	for ( i = 0; i < scene.children.length; i ++ ) {
 
